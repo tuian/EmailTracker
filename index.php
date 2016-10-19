@@ -1,8 +1,10 @@
 ﻿<?php
 //追踪部分的代码
-require("ipua.php");
-require("config.php");
-require("form.php");
+require_once("functions.php");
+require_once("config.php");
+require_once("form.php");
+require_once("PHPMailer/send_mail.php");
+
 if($read=="Send")
 	$unread=3;
 else
@@ -17,7 +19,8 @@ if(!empty($subject) and !empty($email))
 	$flag1=$flag2=false;
 	$trackerIP=getIP();
 	$trackerUA=getUA();
-	$sql="insert into job values(0,'$hashID','$email','$subject','$trackerIP','$trackerUA',$unread,1)";
+	$trackTime=time();
+	$sql="insert into job values(0,'$hashID','$trackTime','$email','$subject','$trackerIP','$trackerUA',$unread,1)";
 	
 	//插入任务到job表中（游客jID为0），创建hash，拷贝追踪文件。
 	//创建连接
