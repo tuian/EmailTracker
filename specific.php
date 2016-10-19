@@ -2,7 +2,6 @@
 
 //负责复制对应日志的hashID到/img/hashID/下
 require_once("config.php");
-//require_once("analysis.php");
 
 
 //定义变量

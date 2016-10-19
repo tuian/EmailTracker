@@ -8,6 +8,7 @@ $sqlHandler=new mysqli("localhost",dbUser,dbPass,"emailtracker");
 $sqlHandler->query("set names utf8");
 if(mysqli_connect_errno())
 	die("连接失败".mysqli_connect_errno());
+
 $all=$sendAdd=null;
 $sql="select distinct jemail,tip,ttime,tloc,tbrowser,tos from tracker inner join job on job.jhashID=tracker.thashID order by ttime";
 $count=0;

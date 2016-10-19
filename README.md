@@ -18,8 +18,21 @@ PS,开发版本会在dev这个分支下（Development）,目前稳定的会放�
 
 进展
 ====
-2016-10-19  能够成功区分不同邮箱、主题的追踪。马上就会增加对结果的显示啦！
+2016-10-19  更新<br>
+这个小东西已经可以部署啦！基本功能已经实现。目前已经完成的功能有：
+* 跟踪用户邮件，并且能够区分不同的用户（根据邮箱和主题的Hash）<br>
+* 当三天未读之后，会向用户分发送未读提醒；当邮件被阅读之后，用户会收到提醒邮件<br>
+接下来要开发的功能有...<br>
+未注册用户30天删除跟踪记录、用户从邮件中取消跟踪。
 
+部署方法
+====
+复制到Web服务器的根目录（XAMPP为C:\xampp\htdocs），修改`config.php`中的部分参数<br>
+要注意的是，PHP.ini要如下设置：<br>
+`date.timezone =Asia/ShangHai`<br>
+如果出现发送邮件失败，需要<br>
+`allow_url_fopen = On`<br>
+`extension=php_openssl.dll`<br>
 
 其他
 ====
@@ -28,5 +41,5 @@ PS,开发版本会在dev这个分支下（Development）,目前稳定的会放�
 
 License
 =====
-Publish under GPL v2.
+Publish under GPL v3.
 Thanks to PHPMailer and other open source projects!
