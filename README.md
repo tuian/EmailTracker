@@ -28,5 +28,5 @@ PS,开发版本会在dev这个分支下（Development）,目前稳定的会放�
 
 License
 =====
-Publish under GPL v2.
+Publish under GPL v3.
 Thanks to PHPMailer and other open source projects!
