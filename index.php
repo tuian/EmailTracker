@@ -20,6 +20,7 @@ if(!empty($subject) and !empty($email))
 	$trackerIP=getIP();
 	$trackerUA=getUA();
 	$trackTime=time();
+	//echo $trackTime;
 	$sql="insert into job values(0,'$hashID','$trackTime','$email','$subject','$trackerIP','$trackerUA',$unread,1)";
 	
 	//插入任务到job表中（游客jID为0），创建hash，拷贝追踪文件。

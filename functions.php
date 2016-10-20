@@ -651,4 +651,29 @@ if($sIP!=$IP and $sBrowser!=$Browser){
 
 
 
+function my_del($path)
+{
+    if(is_dir($path))
+    {
+            $file_list= scandir($path);
+            foreach ($file_list as $file)
+            {
+                if( $file!='.' && $file!='..')
+                {
+                    my_del($path.'/'.$file);
+                }
+            }
+            @rmdir($path);  //这种方法不用判断文件夹是否为空,  因为不管开始时文件夹是否为空,到达这里的时候,都是空的     
+    return true;
+	}
+    else
+    {
+        @unlink($path);    //这两个地方最好还是要用@屏蔽一下warning错误,看着闹心
+		return false;
+    }
+ 
+}
+
+
+
 ?>

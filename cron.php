@@ -18,6 +18,7 @@ while(list($cID,$cHashID,$cInitTime,$cEmail,$cSubject,$cIP,$cBrowser,$cUnread,$c
 	if((time()-$cInitTime)>259200 and $cUnread==3)	//超过三天未读
 	{
 	sendUnReadEmail($cHashID,$cEmail,$cSubject,$cUnread);
+		exit();
 		//是否要die
 	}
 	

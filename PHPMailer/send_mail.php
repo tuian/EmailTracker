@@ -20,7 +20,7 @@ normal;padding:8px 0 10px 8px;"><span style="color: #12ADDB;font-weight: bold;">
 .$EmailAdd.' 你好，你追踪的邮件尚未被阅读！</h2><div style="padding:0 12px 0 12px;margin-top:18px">
 <p>您好，您追踪的邮件『'.$Subject.'』尚未被阅读<br>'.'
 
-<a style="text-decoration:none; color:#5692BC" target="_blank" href="delete.php">点击这里</a>退订本次追踪
+<a style="text-decoration:none; color:#5692BC" target="_blank" href="delete.php?id='.$HashID.'">点击这里</a>退订本次追踪
 
 <br>祝您天天开心，欢迎下次使用，谢谢。
 </p><p style="float:right;">(此邮件由系统自动发出, 请勿回复)</p></div></div></td></tr>
@@ -130,7 +130,7 @@ normal;padding:8px 0 10px 8px;"><span style="color: #12ADDB;font-weight: bold;">
 </p><p style="background-color: #EEE;border: 1px solid #DDD;padding: 20px;margin: 15px 0;">浏览器： '.$browser.'</p><p>
 </p><p style="background-color: #EEE;border: 1px solid #DDD;padding: 20px;margin: 15px 0;">操作系统 :'.$os.'</p><p>
 
-<a style="text-decoration:none; color:#5692BC" target="_blank" href="delete.php">点击这里</a>退订本次追踪
+<a style="text-decoration:none; color:#5692BC" target="_blank" href="delete.php?id='.$HashID.'" >点击这里</a>退订本次追踪
 
 <br>祝您天天开心，欢迎下次使用，谢谢。
 </p><p style="float:right;">(此邮件由系统自动发出, 请勿回复)</p></div></div></td></tr>

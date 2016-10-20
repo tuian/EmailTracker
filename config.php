@@ -34,7 +34,7 @@ if(!$sqlHandler->query($sql))
 
 $sql="create table if not exists tracker(tID int not null,
 										 tHashID varchar(40) not null,
-										 tTime int not null,
+										 tTime datetime not null,
 										 tIP varchar(20) not null,
 										 tLoc varchar(40),
 										 tBrowser varchar(30) not null,
@@ -45,7 +45,7 @@ if(!$sqlHandler->query($sql))
 //3.创建计划任务表
 $sql="create table if not exists job(jID int not null ,
 									 jHashID varchar(40) not null primary key,
-									 tInitTime datetime not null,
+									 tInitTime int not null,
 									 jEmail varchar(40) not null,
 									 jSubject varchar(40) not null,
 									 jIP varchar(20) not null,
