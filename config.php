@@ -8,6 +8,13 @@ define("dbUser",	"root");	//MySQL用户名，通常是root
 define("dbPass",	"root");	//MySQL密码，请自行修改
 define("logPath",	"C:\\xampp\\apache\\logs\\access.log");	//日志文件的路径
 //Windows请使用C:\\xampp\\apache\\logs\\access.log，linux使用/home/wwwlogs/access.log
+//定义SMTP参数
+define("mailHost","smtp.exmail.qq.com");	//SMTP服务器 
+define("mailPort","465");					//端口
+define("mailUsername","no-reply@comingon.top");	//用户名
+define("mailPassword","941226Mail");	//密码
+define("mailFromName","Ruby");	//发件人姓名
+
 
 $sqlHandler=new mysqli("localhost",dbUser,dbPass);
 $sqlHandler->query("set names utf8");

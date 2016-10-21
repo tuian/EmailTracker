@@ -49,19 +49,19 @@ padding-top:15px">Copyright © 2014-2016 Ruby </div></div>
 
 $mail = new PHPMailer(); //实例化
 $mail->IsSMTP(); // 启用SMTP
-$mail->Host = "smtp.exmail.qq.com"; //SMTP服务器 以163邮箱为例子
-$mail->Port = 465;  //邮件发送端口
+$mail->Host = mailHost; //SMTP服务器 以163邮箱为例子
+$mail->Port = mailPort;  //邮件发送端口
 $mail->SMTPAuth   = true;  //启用SMTP认证
 $mail->SMTPSecure = "ssl";
 $mail->CharSet  = "UTF-8"; //字符集
 $mail->Encoding = "base64"; //编码方式
 
-$mail->Username = "no-reply@comingon.top";  //你的邮箱
-$mail->Password = "941226Mail";  //你的密码
+$mail->Username = mailUsername;  //你的邮箱
+$mail->Password = mailPassword;  //你的密码
 $mail->Subject = "你的邮件有新的状态！"; //邮件标题
 
-$mail->From = "no-reply@comingon.top";  //发件人地址（也就是你的邮箱）
-$mail->FromName = "Ruby";  //发件人姓名
+$mail->From = mailUsername;  //发件人地址（也就是你的邮箱）
+$mail->FromName = mailFromName;  //发件人姓名
 
 $address = $EmailAdd;//收件人email   ***
 $mail->AddAddress($address, "嗨");//添加收件人（地址，昵称）
@@ -172,19 +172,19 @@ $sqlHandler->close();
 
 $mail = new PHPMailer(); //实例化
 $mail->IsSMTP(); // 启用SMTP
-$mail->Host = "smtp.exmail.qq.com"; //SMTP服务器 以163邮箱为例子
-$mail->Port = 465;  //邮件发送端口
+$mail->Host = mailHost; //SMTP服务器 以163邮箱为例子
+$mail->Port = mailPort;  //邮件发送端口
 $mail->SMTPAuth   = true;  //启用SMTP认证
 $mail->SMTPSecure = "ssl";
 $mail->CharSet  = "UTF-8"; //字符集
 $mail->Encoding = "base64"; //编码方式
 
-$mail->Username = "no-reply@comingon.top";  //你的邮箱
-$mail->Password = "941226Mail";  //你的密码
+$mail->Username = mailUsername;  //你的邮箱
+$mail->Password = mailPassword;  //你的密码
 $mail->Subject = "你的邮件有新的状态！"; //邮件标题
 
-$mail->From = "no-reply@comingon.top";  //发件人地址（也就是你的邮箱）
-$mail->FromName = "Ruby";  //发件人姓名
+$mail->From = mailUsername;  //发件人地址（也就是你的邮箱）
+$mail->FromName = mailFromName;  //发件人姓名
 
 $address = $EmailAdd;//收件人email   ***
 $mail->AddAddress($address, "嗨");//添加收件人（地址，昵称）
