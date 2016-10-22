@@ -5,7 +5,7 @@ require_once("config.php");
 require_once("/PHPMailer/send_mail.php");
 //计划任务的目标
 //读取job，分析日志文件，将包含hashID的日志拷贝到对应的用户目录下
-$sqlHandler=new mysqli("localhost",dbUser,dbPass,"emailtracker");
+$sqlHandler=new mysqli("localhost",dbUser,dbPass,"EmailTracker");
 $sqlHandler->query("set names utf8");
 if(mysqli_connect_errno())
 	die("连接失败".mysqli_connect_errno());

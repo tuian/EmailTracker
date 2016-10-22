@@ -4,7 +4,7 @@ require_once("config.php");
 require_once("functions.php");
 $deleteID=$_GET['id'];
 
-$sqlHandler=new mysqli("localhost",dbUser,dbPass,"emailtracker");
+$sqlHandler=new mysqli("localhost",dbUser,dbPass,"EmailTracker");
 $sqlHandler->query("set names utf8");
 if(mysqli_connect_errno())
 	die('Could not connect: ' .mysqli_connect_errno());

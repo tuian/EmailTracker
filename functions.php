@@ -512,7 +512,7 @@ function analysis($HashID,$IP,$Browser)
 
 $fileHandle=fopen(__DIR__."/img/$HashID/specific.log","r") or die("文件打开失败");
 
-$sqlInsertHandler=new mysqli("localhost",dbUser,dbPass,"emailtracker");
+$sqlInsertHandler=new mysqli("localhost",dbUser,dbPass,"EmailTracker");
 $sqlInsertHandler->query("set names utf8");
 if(mysqli_connect_errno())
 	die("连接失败".mysqli_connect_errno());

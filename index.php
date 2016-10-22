@@ -28,7 +28,7 @@ if(!empty($subject) and !empty($email))
 	//关于jAvailable，0代表无效，需要删除这个条目；1代表有效。
 	//关于jUnread  
 	//3代表剩余3天发送未读邮件提醒，0表示立刻发送未读邮件提醒，-1表示不发送未读邮件提醒
-	$sqlHandler=new mysqli("localhost",dbUser,dbPass,"emailtracker");
+	$sqlHandler=new mysqli("localhost",dbUser,dbPass,"EmailTracker");
 	$sqlHandler->query("set names utf8");
 	if(mysqli_connect_errno())
 		echo "连接失败".mysqli_connect_errno();
