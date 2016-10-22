@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 //追踪部分的代码
 require_once("functions.php");
 require_once("config.php");
@@ -43,10 +43,10 @@ else
 
 //拷贝追踪图片
 if(!is_readable("img"))
-	mkdir("img",755,true);
+	mkdir("img",0755,true);
 if(!is_readable("img/$hashID"))
 {
-	mkdir("img/$hashID",755,true);
+	mkdir("img/$hashID",0755,true);
 	copy("track.png",$imgSrc);
 	$flag2=true;
 }	

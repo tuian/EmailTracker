@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 //一些通用的功能函数全部在此定义
 //////////////qqwry
@@ -15,7 +15,7 @@
  
 class IpLocation {  
      /**  
-      * QQWry.Dat文件指针  
+      * qqwry.dat文件指针  
       *  
       * @var resource  
       */ 
@@ -47,13 +47,13 @@ class IpLocation {
      private $totalip;  
  
     /**  
-      * 构造函数，打开 QQWry.Dat 文件并初始化类中的信息  
+      * 构造函数，打开 qqwry.dat 文件并初始化类中的信息  
       *  
       * @param string $filename  
       * @return IpLocation  
       */ 
  
-     public function __construct($filename = "QQWry.Dat") {  
+     public function __construct($filename = "qqwry.dat") {  
  
          $this->fp = 0;  
  
@@ -235,7 +235,7 @@ class IpLocation {
  
          $u = $this->totalip;            // 搜索的上边界  
  
-         $findip = $this->lastip;        // 如果没有找到就返回最后一条IP记录（QQWry.Dat的版本信息）  
+         $findip = $this->lastip;        // 如果没有找到就返回最后一条IP记录（qqwry.dat的版本信息）  
  
          while ($l <= $u) {              // 当上边界小于下边界时，查找失败  
  
@@ -488,17 +488,21 @@ return iconv("GB2312","UTF-8//IGNORE",$location["country"]." ".$location["area"]
 
 function copyLog($cpyHashID)
 {
+	
+//debug
+
 $regex="/".$cpyHashID."/i";
-$readHandle=fopen(logPath,"r") or die("文件打开失败");//打开日志access.log
-$writeHandle=fopen("img/$cpyHashID/specific.log","w") or die("写入文件打开失败");//打开特定日志准备写入specific.log
-
-
+$readHandle=fopen(logPath,"rb") or die("log文件打开失败".E_WARNING);//打开日志access.log
+//echo __DIR__."/img/$cpyHashID/specific.log<br>";
+$writeHandle=fopen(__DIR__."/img/$cpyHashID/specific.log","w") or die("specific写入文件打开失败 ");//Linux
+//$writeHandle=fopen("img/$cpyHashID/specific.log","w") or die("specific写入文件打开失败");//windows,通常来说转义是无所谓的..
 while(!feof($readHandle))
 {
 	$logBuffer=fgets($readHandle);
 
  if (preg_match($regex, $logBuffer)) //如果字符串中包含Windows NT 6.0字符的话
         fwrite($writeHandle,$logBuffer);
+
 		
 }
 
@@ -628,7 +632,7 @@ while(!feof($fileHandle)){
 //1没发送过 所以要发送
 //0发送过  所以不发送、。
 //echo $sIP." - ".$IP." | ".$sBrowser." - ".$Browser."<br>";
-if($sIP!=$IP and $sBrowser!=$Browser){
+if($sIP!=$IP or $sBrowser!=$Browser){
 	$sql="insert into tracker values (0,'$HashID','$sTime','$sIP','$sLoc','$sBrowser','$sOS')";
 	if(!$sqlInsertHandler->query($sql))
 		echo "插入失败 ".$sqlInsertHandler->error.$sqlInsertHandler->errno;

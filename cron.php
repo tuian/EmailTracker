@@ -1,8 +1,9 @@
-﻿<?php
+<?php
 
 require_once("functions.php");
 require_once("config.php");
-require_once("/PHPMailer/send_mail.php");
+require_once("./PHPMailer/send_mail.php");
+
 //计划任务的目标
 //读取job，分析日志文件，将包含hashID的日志拷贝到对应的用户目录下
 $sqlHandler=new mysqli("localhost",dbUser,dbPass,"EmailTracker");
@@ -13,6 +14,7 @@ if(mysqli_connect_errno())
 $c=0;
 $jobResult=$sqlHandler->query("select * from job");
 //拷贝日志、分析日志、删除过期追踪记录
+
 while(list($cID,$cHashID,$cInitTime,$cEmail,$cSubject,$cIP,$cBrowser,$cUnread,$cAvailable)=$jobResult->fetch_row())	
 {	//echo "job time Unix ".$cInitTime."<br>";
 	if((time()-$cInitTime)>259200 and $cUnread==3)	//超过三天未读

@@ -1,29 +1,29 @@
 <?php
 
-//负责复制对应日志的hashID到/img/hashID/下
+//赂潞脭冒赂麓脰脝露脭脫娄脠脮脰戮碌脛hashID碌陆/img/hashID/脧脗
 require_once("config.php");
 
 
-//定义变量
+//露篓脪氓卤盲脕驴
 
 $cID=$cHashID=$cIP=$cBrowser=$cUnread=$cAvailable=null;
 
 $jobResult=$sqlHandler->query("select * from job");
-while(list($cID,$cHashID,$cIP,$cBrowser,$cUnread,$cAvailable)=$jobResult->fetch_row())	//list 把数组中的值赋值给变量
+while(list($cID,$cHashID,$cIP,$cBrowser,$cUnread,$cAvailable)=$jobResult->fetch_row())	//list 掳脩脢媒脳茅脰脨碌脛脰碌赂鲁脰碌赂酶卤盲脕驴
 {	
 	$regex="/".$cHashID."/i";
-$readHandle=fopen(logPath,"r") or die("文件打开失败");//打开日志access.log
-$writeHandle=fopen("img/$cHashID/specific.log","w") or die("文件打开失败");//打开特定日志准备写入specific.log
+$readHandle=fopen(logPath,"r") or die("脦脛录镁麓貌驴陋脢搂掳脺");//麓貌驴陋脠脮脰戮access.log
+$writeHandle=fopen("img/$cHashID/specific.log","w") or die("脦脛录镁麓貌驴陋脢搂掳脺");//麓貌驴陋脤脴露篓脠脮脰戮脳录卤赂脨麓脠毛specific.log
 
 while(!feof($readHandle)){
 	$logBuffer=fgets($readHandle);
 
- if (preg_match($regex, $logBuffer)) //如果字符串中包含Windows NT 6.0字符的话
+ if (preg_match($regex, $logBuffer)) //脠莽鹿没脳脰路没麓庐脰脨掳眉潞卢Windows NT 6.0脳脰路没碌脛禄掳
         fwrite($writeHandle,$logBuffer);
 }
 fclose($readHandle);
 fclose($writeHandle);
-//分析用户目录下的日志信息，存入tracker表
+//路脰脦枚脫脙禄搂脛驴脗录脧脗碌脛脠脮脰戮脨脜脧垄拢卢麓忙脠毛tracker卤铆
 
 }
 

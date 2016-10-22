@@ -1,5 +1,11 @@
 # EmailTracker
 An EmailTracker based on PHP.
+
+
+进展
+====
+现在本系统已经可以投入使用……
+
 使用方法
 ===
 下载[xampp](http://www.xampps.com/)，默认路径安装。之后打开（管理员权限）<br>
@@ -28,16 +34,23 @@ PS,开发版本会在dev这个分支下（Development）,目前稳定的会放�
 
 Bug修复
 ====
-修复了错误设置datatime和int类型的bug
+2016-10-20修复了错误设置datatime和int类型的bug
+2016-10-22修复了Windows和Linux对大小写敏感的bug
 
 部署方法
 ====
-复制到Web服务器的根目录（XAMPP为C:\xampp\htdocs），修改`config.php`中的部分参数<br>
+复制到Web服务器的根目录（XAMPP为C:\xampp\htdocs），修改`config.php`中的部分参数并设置计划任务<br>
 要注意的是，PHP.ini要如下设置：<br>
 `date.timezone =Asia/ShangHai`<br>
 如果出现发送邮件失败，需要<br>
 `allow_url_fopen = On`<br>
 `extension=php_openssl.dll`<br>
+Linux主机需要修改php.ini来使得php能够读取web目录以外的文件,并且额外需要注意权限的问题（推荐755）
+`open_basedir = .:/home`
+如果修改之后出现phpmyadmin启动失败，则需要在php.ini里接着修改
+`session.save_path = "/tmp"`
+
+
 
 其他
 ====

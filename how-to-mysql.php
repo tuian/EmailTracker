@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 $sqlHandler=new mysqli("localhost","root","root","prison");
 $sqlHandler->query("set names utf8");

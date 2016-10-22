@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 //加密密码
 $pwd="mypassword";

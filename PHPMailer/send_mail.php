@@ -151,7 +151,7 @@ padding-top:15px">Copyright © 2014-2016 Ruby </div></div>
 
 	$testTime=time()-strtotime($recordTime);
 	
-		if($testTime>=120)	//120秒之内
+		if($testTime>=cronTime)	//120秒之内
 	{	echo "日志中最新的时间：".$recordTime."<br>";
 		echo "当前时间：".date("Y-m-d G:i:s")."<br>";
 		echo "当前Unix时间戳".time()."<br>";
@@ -160,7 +160,7 @@ padding-top:15px">Copyright © 2014-2016 Ruby </div></div>
 		echo "很长时间之前的记录，一定是发送过了或者是3天内没人读<br>";
 		return 1;
 	}
-	else
+	//else
 		//echo $emailBody;	//debug
 	
 $jobResult->close();

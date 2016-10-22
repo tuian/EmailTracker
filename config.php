@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 //1.是否需要检查是否安装并提供管理员的后台界面？
 //我觉得有必要检查是否安装，方法是查看数据库是否存在。
@@ -14,7 +14,7 @@ define("mailPort","465");					//端口
 define("mailUsername","no-reply@comingon.top");	//用户名
 define("mailPassword","941226Mail");	//密码
 define("mailFromName","Ruby");	//发件人姓名
-
+define("cronTime","60");		//cron
 
 $sqlHandler=new mysqli("localhost",dbUser,dbPass);
 $sqlHandler->query("set names utf8");
