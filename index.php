@@ -43,10 +43,10 @@ else
 
 //拷贝追踪图片
 if(!is_readable("img"))
-	mkdir("img",true);
+	mkdir("img",755,true);
 if(!is_readable("img/$hashID"))
 {
-	mkdir("img/$hashID",true);
+	mkdir("img/$hashID",755,true);
 	copy("track.png",$imgSrc);
 	$flag2=true;
 }	
