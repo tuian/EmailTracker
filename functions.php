@@ -3,8 +3,6 @@
 //一些通用的功能函数全部在此定义
 //////////////qqwry
 
-
-
 /**  
 * IP 地理位置查询类  
 *   
@@ -370,19 +368,6 @@ class IpLocation {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-//
-
 //IP
 
 function getIP()
@@ -407,6 +392,9 @@ function getIP()
     }
     return $realip;
 }
+
+//UA
+
 function getUA()
 {
 	$UA=$_SERVER['HTTP_USER_AGENT'];
@@ -461,6 +449,7 @@ if (preg_match('#(Camino|Chimera)[ /]([a-zA-Z0-9.]+)#i', $UA, $matches)) {
 return $browser;
 }
 
+//IP转为地理位置，在线版
 function getLocOnline($ip)	//使用本地版本的更好...
 {
 $url="http://ip.taobao.com/service/getIpInfo.php?ip=".$ip;
@@ -484,13 +473,10 @@ return iconv("GB2312","UTF-8//IGNORE",$location["country"]." ".$location["area"]
 
 
 //日志分析
-
-
 function copyLog($cpyHashID)
 {
 	
 //debug
-
 $regex="/".$cpyHashID."/i";
 $readHandle=fopen(logPath,"rb") or die("log文件打开失败".E_WARNING);//打开日志access.log
 //echo __DIR__."/img/$cpyHashID/specific.log<br>";
@@ -502,8 +488,7 @@ while(!feof($readHandle))
 
  if (preg_match($regex, $logBuffer)) //如果字符串中包含Windows NT 6.0字符的话
         fwrite($writeHandle,$logBuffer);
-
-		
+	
 }
 
 fclose($readHandle);
@@ -512,10 +497,7 @@ fclose($writeHandle);
 
 function analysis($HashID,$IP,$Browser)
 {
-	
-
 $fileHandle=fopen(__DIR__."/img/$HashID/specific.log","r") or die("文件打开失败");
-
 $sqlInsertHandler=new mysqli("localhost",dbUser,dbPass,"EmailTracker");
 $sqlInsertHandler->query("set names utf8");
 if(mysqli_connect_errno())
@@ -528,7 +510,6 @@ $sIP=$sLoc=$sTime=$ssOS=$sBrowser=null;
 while(!feof($fileHandle)){
 
 	$logBuffer=fgets($fileHandle);//读取一行
-
 	//IP
 	if(preg_match($ipRegex,$logBuffer,$ipMatches))
 		$sIP=$ipMatches[0];
@@ -638,18 +619,9 @@ if($sIP!=$IP or $sBrowser!=$Browser){
 		echo "插入失败 ".$sqlInsertHandler->error.$sqlInsertHandler->errno;
 }
 
-
 }
 
 	fclose($fileHandle);
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }
 

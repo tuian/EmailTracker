@@ -1,5 +1,4 @@
 <?php
-
 require_once("config.php");
 require_once("functions.php");
 $deleteID=$_GET['id'];
@@ -27,20 +26,6 @@ alert(\'退订成功，点击确定跳转到主页...\');location.href=\'index.p
 }
 
 $sqlHandler->close();
-
-
-//删除文件夹函数
-
- 
-
-
-
-
-
-
-
-
-
 
 ?>
 

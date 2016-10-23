@@ -6,7 +6,7 @@
 </style>
 </head>
 <body> 
-
+<title>Benny's Email Tracker</title>
 <?php
 // 定义变量并设置为空值
 $subjectErr = $emailErr =  "";
@@ -31,10 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$read="Don't send.";
 	else
 		$read="Send";
-
-   
-
-   
+  
 }
 
 function test_input($data) {

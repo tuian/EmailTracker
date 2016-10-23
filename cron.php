@@ -23,7 +23,6 @@ while(list($cID,$cHashID,$cInitTime,$cEmail,$cSubject,$cIP,$cBrowser,$cUnread,$c
 		exit();
 		//是否要die
 	}
-	
 	copyLog($cHashID);	//拷贝日志
 	//分析日志
 	$sql="delete from tracker where tHashID='$cHashID'";
@@ -32,8 +31,6 @@ while(list($cID,$cHashID,$cInitTime,$cEmail,$cSubject,$cIP,$cBrowser,$cUnread,$c
 	analysis($cHashID,$cIP,$cBrowser);
 	
 	//根据hashID和邮箱进行跨表查询，然后发送邮件（demo里显示）
-	//select tip,ttime,tloc,tbrowser,tos from tracker where thashid='9f2dad8eca31fd8e10dca8190eb298f7'  ;
-	
 	sendEmail($cHashID,$cEmail,$cSubject,$cUnread);
 
 }

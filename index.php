@@ -11,8 +11,6 @@ else
 	$unread=-1;
 if(!empty($subject) and !empty($email))
 {	
-	
-	
 	//创建变量
 	$hashID=md5($email.$subject);
 	$imgSrc="img/$hashID/track.png";
@@ -32,7 +30,6 @@ if(!empty($subject) and !empty($email))
 	$sqlHandler->query("set names utf8");
 	if(mysqli_connect_errno())
 		echo "连接失败".mysqli_connect_errno();
-	
 	
 //插入job
 if($sqlHandler->query($sql))
