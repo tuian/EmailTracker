@@ -123,7 +123,7 @@ cronTime	//任务计划时间间隔
 如果出现发送邮件失败，需要<br>
 `allow_url_fopen = On`<br>
 `extension=php_openssl.dll`<br>
-Linux主机需要修改php.ini来使得php能够读取web目录以外的文件,并且额外需要注意权限的问题（推荐755）
+Linux主机需要修改php.ini来使得php能够读取web目录以外的文件,并且额外需要注意权限的问题（推荐755）<br>
 `open_basedir = .:/home`<br>
 如果修改之后出现phpmyadmin启动失败，则需要在php.ini里接着修改<br>
 `session.save_path = "/tmp"`
