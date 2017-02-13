@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 //追踪部分的代码
 require_once("functions.php");
 require_once("config.php");
@@ -11,8 +11,6 @@ else
 	$unread=-1;
 if(!empty($subject) and !empty($email))
 {	
-	
-	
 	//创建变量
 	$hashID=md5($email.$subject);
 	$imgSrc="img/$hashID/track.png";
@@ -28,11 +26,10 @@ if(!empty($subject) and !empty($email))
 	//关于jAvailable，0代表无效，需要删除这个条目；1代表有效。
 	//关于jUnread  
 	//3代表剩余3天发送未读邮件提醒，0表示立刻发送未读邮件提醒，-1表示不发送未读邮件提醒
-	$sqlHandler=new mysqli("localhost",dbUser,dbPass,"emailtracker");
+	$sqlHandler=new mysqli("localhost",dbUser,dbPass,"EmailTracker");
 	$sqlHandler->query("set names utf8");
 	if(mysqli_connect_errno())
 		echo "连接失败".mysqli_connect_errno();
-	
 	
 //插入job
 if($sqlHandler->query($sql))
@@ -43,10 +40,10 @@ else
 
 //拷贝追踪图片
 if(!is_readable("img"))
-	mkdir("img",true);
+	mkdir("img",0755,true);
 if(!is_readable("img/$hashID"))
 {
-	mkdir("img/$hashID",true);
+	mkdir("img/$hashID",0755,true);
 	copy("track.png",$imgSrc);
 	$flag2=true;
 }	

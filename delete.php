@@ -1,10 +1,9 @@
-﻿<?php
-
+<?php
 require_once("config.php");
 require_once("functions.php");
 $deleteID=$_GET['id'];
 
-$sqlHandler=new mysqli("localhost",dbUser,dbPass,"emailtracker");
+$sqlHandler=new mysqli("localhost",dbUser,dbPass,"EmailTracker");
 $sqlHandler->query("set names utf8");
 if(mysqli_connect_errno())
 	die('Could not connect: ' .mysqli_connect_errno());
@@ -27,20 +26,6 @@ alert(\'退订成功，点击确定跳转到主页...\');location.href=\'index.p
 }
 
 $sqlHandler->close();
-
-
-//删除文件夹函数
-
- 
-
-
-
-
-
-
-
-
-
 
 ?>
 

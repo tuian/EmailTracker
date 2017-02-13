@@ -30,10 +30,10 @@ padding-top:15px">Copyright © 2014-2016 Ruby </div></div>
 	';
 	
 	//之后把unread改成0吧哈哈哈，这样就调用不到这里了。
-		echo $emailBody;	//debug
+		//echo $emailBody;	//debug
 		
 	
-	$sqlHandler=new mysqli("localhost",dbUser,dbPass,"emailtracker");
+	$sqlHandler=new mysqli("localhost",dbUser,dbPass,"EmailTracker");
 	$sqlHandler->query("set names utf8");
 	if(mysqli_connect_errno())
 	die("连接失败".mysqli_connect_errno());
@@ -45,7 +45,7 @@ padding-top:15px">Copyright © 2014-2016 Ruby </div></div>
 
 //结束
 //发送邮件
-/*
+
 
 $mail = new PHPMailer(); //实例化
 $mail->IsSMTP(); // 启用SMTP
@@ -81,7 +81,7 @@ if(!$mail->Send()) {
 }
 
 //发邮件结束
-*/
+
 
 echo "计划任务成功完成<br>";
 }
@@ -99,7 +99,7 @@ function sendEmail($HashID,$EmailAdd,$Subject,$Unread)
 {
 
 //获取发件人信息
-$sqlHandler=new mysqli("localhost",dbUser,dbPass,"emailtracker");
+$sqlHandler=new mysqli("localhost",dbUser,dbPass,"EmailTracker");
 $sqlHandler->query("set names utf8");
 if(mysqli_connect_errno())
 	die("连接失败".mysqli_connect_errno());
@@ -151,7 +151,7 @@ padding-top:15px">Copyright © 2014-2016 Ruby </div></div>
 
 	$testTime=time()-strtotime($recordTime);
 	
-		if($testTime>=120)	//120秒之内
+		if($testTime>=cronTime)	//120秒之内
 	{	echo "日志中最新的时间：".$recordTime."<br>";
 		echo "当前时间：".date("Y-m-d G:i:s")."<br>";
 		echo "当前Unix时间戳".time()."<br>";
@@ -160,15 +160,15 @@ padding-top:15px">Copyright © 2014-2016 Ruby </div></div>
 		echo "很长时间之前的记录，一定是发送过了或者是3天内没人读<br>";
 		return 1;
 	}
-	else
-		echo $emailBody;	//debug
+	//else
+		//echo $emailBody;	//debug
 	
 $jobResult->close();
 $sqlHandler->close();
 
 //结束
 //发送邮件
-/*
+
 
 $mail = new PHPMailer(); //实例化
 $mail->IsSMTP(); // 启用SMTP
@@ -204,7 +204,7 @@ if(!$mail->Send()) {
 }
 
 //发邮件结束
-*/
+
 
 echo "计划任务成功完成<br>";
 }
