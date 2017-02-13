@@ -16,10 +16,9 @@ A `<img>` will refer to other resources like pictures while some Email will try 
 
 Important disclaimer
 ====
-I am a newbee to PHP and know barely nothing about JS, CSS. <br>
-So the efficiency of my algorithm is pretty bad and the interface is very ancient.<br>
-About privacy and interpersonal relationship: it's easy to get your UA; please don't abuse this program.<br>
-I'll update this program as much as I can.<br>
+I am a newbee to PHP and know barely nothing about JS, CSS. 
+So the efficiency of my algorithm is pretty bad and the interface is very ancient.
+About privacy and interpersonal relationship: it's easy to get your UA; please don't abuse this program.
 
 Prerequisites
 ====
@@ -68,9 +67,7 @@ Thanks to PHPMailer and other open source projects!
 
 
 
-
-
-
+----------
 
 
 
@@ -87,9 +84,9 @@ Thanks to PHPMailer and other open source projects!
 
 免责声明
 ====
-本人是PHP新手，并且不太会前端，所以算法效率很低、界面很丑的……<br>
-关于隐私、人际关系等：UA是很容易就获取的、请勿滥用。<br>
-我会持续更新这个项目的。<br>
+本人是PHP新手，并且不太会前端，所以算法效率很低、界面很丑的……
+关于隐私、人际关系等：UA是很容易就获取的、请勿滥用。
+
 
 使用条件
 ====
@@ -99,9 +96,9 @@ Windows推荐使用XAMPP，Linux使用LNMP和LAMP均可。推荐使用PHP7
 
 部署方法
 ===
-1.安装[xampp](http://www.xampps.com/)，或者LNMP等<br>
-确保Web服务器和PHP、MySQL是处于运行的状态<br>
-将全部文件复制到Web服务器的根目录（XAMPP为C:\xampp\htdocs），Linux要确保权限为755、属主为www<br>
+1.安装[xampp](http://www.xampps.com/)，或者LNMP等
+确保Web服务器和PHP、MySQL是处于运行的状态
+将全部文件复制到Web服务器的根目录（XAMPP为C:\xampp\htdocs），Linux要确保权限为755、属主为www
 修改`config.php`中的参数并<br>
 ```
 dbUser	//数据库用户名，通常为root
@@ -118,30 +115,23 @@ cronTime	//任务计划时间间隔
 
 疑难解答
 ====
-要注意的是，PHP.ini要设置对应你的时区：<br>
-`date.timezone =Asia/ShangHai`<br>
-如果出现发送邮件失败，需要<br>
-`allow_url_fopen = On`<br>
-`extension=php_openssl.dll`<br>
-Linux主机需要修改php.ini来使得php能够读取web目录以外的文件,并且额外需要注意权限的问题（推荐755）<br>
-`open_basedir = .:/home`<br>
-如果修改之后出现phpmyadmin启动失败，则需要在php.ini里接着修改<br>
+要注意的是，PHP.ini要设置对应你的时区：
+`date.timezone =Asia/ShangHai`
+如果出现发送邮件失败，需要
+`allow_url_fopen = On`
+`extension=php_openssl.dll`
+Linux主机需要修改php.ini来使得php能够读取web目录以外的文件,并且额外需要注意权限的问题（推荐755）
+`open_basedir = .:/home`
+如果修改之后出现phpmyadmin启动失败，则需要在php.ini里接着修改
 `session.save_path = "/tmp"`
 
 进展
 ====
-2016-10-19  更新<br>
 这个小东西已经可以部署啦！基本功能已经实现。目前已经完成的功能有：
-* 跟踪用户邮件，并且能够区分不同的用户（根据邮箱和主题的Hash）<br>
-* 当三天未读之后，会向用户分发送未读提醒；当邮件被阅读之后，用户会收到提醒邮件<br>
-2016-10-20  更新<br>
-* 邮件中点击删除追踪...<br>
-接下来要开发的内容....<br>
-注册用户
+* 跟踪用户邮件，并且能够区分不同的用户（根据邮箱和主题的Hash）
+* 当三天未读之后，会向用户分发送未读提醒；当邮件被阅读之后，用户会收到提醒邮件
+* 邮件中点击删除追踪...
 
-Bug修复
-====
-2016-10-20 修复了错误设置datatime和int类型的bug
 
 许可证
 =====
